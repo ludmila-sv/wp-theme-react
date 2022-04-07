@@ -1,0 +1,27 @@
+.post-card {
+	margin: 0 0 rem( 4 );
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 0 rem( 1.6 );
+	}
+
+	h3 {
+		margin: 0 0 rem( 1.6 );
+	}
+
+	&__categories {
+		a {
+			margin-right: 0.5em;
+
+			&:first-of-type {
+				margin-left: 0.5em;
+			}
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+}

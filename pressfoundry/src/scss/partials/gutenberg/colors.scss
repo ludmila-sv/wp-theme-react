@@ -1,0 +1,19 @@
+/**
+ * Gutenberg color css classes.
+ */
+@each $name, $color in $local-colors {
+
+	// it's critical otherwise there will be conflicts.
+	@if $name == 'text' {
+		$name: 'txt';
+	}
+
+	a.has-#{$name}-color,
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}

@@ -1,0 +1,89 @@
+.text-bg {
+	position: relative;
+	padding: rem( 6.4 ) 0;
+	background: $semantic-error;
+	@include media-breakpoint-up( $bp ) {
+		padding: rem( 14 ) 0;
+	}
+	&.bg-color-white {
+		background: $white;
+		.text-bg__svg svg path {
+			fill: $white;
+		}
+	}
+	&.bg-color-light {
+		background: $light;
+		.text-bg__svg svg path {
+			fill: $light;
+		}
+	}
+	&.bg-color-accent {
+		background: $accent;
+		.text-bg__svg svg path {
+			fill: $accent;
+		}
+	}
+	&.bg-color-accent-variant {
+		background: $accent-variant;
+		.text-bg__svg svg path {
+			fill: $accent-variant;
+		}
+	}
+
+	&.bg-color-accent-variant,
+	&.bg-color-accent {
+		color: $white;
+
+		.btn {
+			color: $white;
+			&:hover,
+			&:focus,
+			&:active {
+				color: $white;
+			}
+		}
+	}
+
+	&__btn {
+		margin: 0 0 rem( 2.4 );
+		@include media-breakpoint-up( $bp ) {
+			margin: 0;
+		}
+	}
+
+	&__svg {
+		position: absolute;
+		left: 50%;
+		top: 100%;
+		z-index: 30;
+		width: 100%;
+		height: auto;
+		transform: translateX( -50% );
+		@include media-breakpoint-up( $bp ) {
+			width: 1680px;
+			height: 38px;
+		}
+		@include media-breakpoint-up( xxl ) {
+			width: 100%;
+			height: auto;
+		}
+
+		svg {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.content & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+// wp admin
+.acf-block-preview {
+	.text-bg {
+		&__svg {
+			display: none;
+		}
+	}
+}

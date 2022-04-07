@@ -1,0 +1,202 @@
+/* stylelint-disable no-descending-specificity */
+.content {
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ) + h1,
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ) + h2,
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ):not( .post-card__img ) + h3 {
+		margin-top: rem( 3 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 8 );
+		}
+	}
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ) + h4,
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ) + h5,
+	*:not( .pre-heading ):not( .overline ):not( .is-style-overline ) + h6 {
+		margin-top: rem( 3 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 5 );
+		}
+	}
+	.pre-heading {
+		margin-top: rem( 3 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 5 );
+		}
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ h6 {
+			margin-top: 0;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	ul,
+	ol,
+	.pre-heading {
+		@include content;
+	}
+
+	.lead,
+	.is-style-lead {
+		margin-top: rem( 4 );
+		margin-bottom: rem( 4 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 8 );
+			margin-bottom: rem( 8 );
+		}
+	}
+
+	ol {
+		list-style: none;
+		counter-reset: pressfoundry-counter-default;
+		margin-top: 0;
+		margin-bottom: rem( 1.6 );
+		padding: 0;
+		@include media-breakpoint-up( $bp ) {
+			margin-bottom: rem( 3.2 );
+		}
+
+		li {
+			@include list;
+			counter-increment: pressfoundry-counter-default;
+			position: relative;
+			margin: 0 0 rem( 1 );
+			padding: 0 0 0 rem( 2.3 );
+			&:before {
+				content: counter( pressfoundry-counter-default ) '.';
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-weight: 700;
+				color: $accent;
+			}
+		}
+
+		&.is-style-checked {
+			li {
+				counter-increment: pressfoundry-counter;
+				padding: 0 0 0 rem( 3.2 );
+				@include media-breakpoint-up( $bp ) {
+					padding: 0 0 0 rem( 4 );
+				}
+
+				&:before {
+					content: counter( pressfoundry-counter );
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: rem( 2.4 );
+					height: rem( 2.4 );
+					border-radius: 50%;
+					background: $accent;
+					font-family: $content-font;
+					font-size: rem( 1.4 );
+					line-height: rem( 2.4 );
+					text-align: center;
+					color: $white;
+					@include media-breakpoint-up( $bp ) {
+						width: rem( 3.2 );
+						height: rem( 3.2 );
+						font-size: rem( 1.8 );
+						line-height: rem( 3.2 );
+					}
+				}
+			}
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin-top: 0;
+		margin-bottom: rem( 1.6 );
+		padding: 0;
+		@include media-breakpoint-up( $bp ) {
+			margin-bottom: rem( 3.2 );
+		}
+
+		li {
+			@include list;
+			position: relative;
+			margin: 0 0 rem( 2.3 );
+			padding: 0 0 0 rem( 3 );
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: rem( 1.2 );
+				left: 0;
+				width: 8px;
+				height: 8px;
+				margin: -4px 0 0;
+				border-radius: 50%;
+				background: $accent;
+				@include media-breakpoint-up( $bp ) {
+					top: rem( 1.6 );
+				}
+			}
+		}
+	}
+	ul ul {
+		list-style-type: '─';
+		margin-bottom: 0;
+
+		li {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	ul.is-style-checked,
+	ul.checked {
+		list-style: none;
+		padding: 0;
+
+		li {
+			position: relative;
+			padding-left: rem( 2.3 );
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: rem( 1.2 );
+				left: 0;
+				width: 16.6px;
+				height: 16.6px;
+				margin: -8.3px 0 0;
+				background: url( ../images/pf-common/checkmark.svg ) no-repeat left center;
+				background-size: 100%;
+				@include media-breakpoint-up( $bp ) {
+					top: rem( 1.6 );
+				}
+			}
+		}
+	}
+
+	a:not( .btn ):not( .wp-block-button__link ):not( .tab-link ):not( .btn-play ):not( [data-fancybox] ):not( .page-nav__a ):not( .page-numbers ) {
+		transition: all 0.3s ease-out;
+		font-weight: 600;
+		text-decoration: none;
+		color: $accent-variant;
+
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+			text-decoration: none;
+			color: $accent;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/**
+ * Define here font styles specified in extensions of gutenberg blocks styles.
+ * pattern of class naming is `.is-style-{style-slug}`
+ */
+.is-style-heading-font {
+	font-family: $headings-font;
+}
+
+.is-style-default{
+	font-family: $content-font;
+}

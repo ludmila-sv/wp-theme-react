@@ -1,0 +1,67 @@
+/* stylelint-disable no-descending-specificity */
+.page-header {
+	margin: 0 0 rem( 4 );
+	@include media-breakpoint-up( sm ) {
+		margin: 0 0 rem( 5.6 );
+	}
+	@include media-breakpoint-up( $bp ) {
+		margin: 0 0 rem( 12 );
+	}
+	&.bg-color-light {
+		background: $light;
+	}
+	&.bg-color-accent {
+		background: $accent;
+	}
+	&.bg-color-accent-variant {
+		background: $accent-variant;
+	}
+	&.bg-color-accent-variant,
+	&.bg-color-accent {
+		color: $white;
+	}
+
+	&__title {
+		padding: rem( 4.8 ) 0;
+		.page-header--img & {
+			padding-bottom: rem( 8 );
+		}
+
+		@include media-breakpoint-up( sm ) {
+			padding: rem( 8 ) 0;
+			.page-header--img & {
+				padding-bottom: rem( 20 );
+			}
+		}
+		@include media-breakpoint-up( $bp ) {
+			padding: rem( 14.4 ) 0;
+			.page-header--img & {
+				padding-bottom: rem( 30.4 );
+			}
+		}
+
+		h1 {
+			margin: 0;
+			text-align: center;
+		}
+	}
+
+	&__image {
+		overflow: hidden;
+		margin: rem( -4.8 ) 0 0;
+		border-radius: rem( 1 );
+		@include media-breakpoint-up( sm ) {
+			margin: rem( -13.8 ) 0 0;
+		}
+		@include media-breakpoint-up( $bp ) {
+			margin: rem( -24 ) 0 0;
+			border-radius: rem( 2 );
+		}
+	}
+}
+.content {
+	.page-header__title h1 {
+		max-width: 100%;
+		margin: 0;
+	}
+}

@@ -1,0 +1,25 @@
+.custom-video {
+	@include section-margin;
+
+	&__video {
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__poster {
+		display: block;
+		width: 100%;
+	}
+
+	.btn-play {
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		left: 50%;
+		margin: rem( -2.8 ) 0 0 rem( -2.8 );
+	}
+}
+[class^='wp-block'] .custom-video {
+	margin-top: 0;
+	margin-bottom: 0;
+}

@@ -1,0 +1,69 @@
+// common wysiwyg content styling.
+.content {
+
+	iframe {
+		max-width: 100%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	// incontent images and their alignment options
+	img {
+		height: auto;
+		max-width: 100%;
+		&.alignleft {
+			float: left;
+			margin: 0.5em 1em 0.5em 0;
+		}
+		&.alignright {
+			float: right;
+			margin: 0.5em 0 0.5em 1em;
+		}
+		&.aligncenter {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			clear: both;
+		}
+	}
+
+	//In Content Unordered lists styles
+
+	> ul {
+		@include list-unstyled-at-all();
+
+		li {
+			padding-left: 1em;
+			text-indent: -1.5em; //-.7em;
+
+			line-height: 1.7; // was 1.7 - they've requested 2.
+			margin-bottom: 0.3em; // to make it looks like 2em line height but don't break multilined list items
+
+			&:before {
+				content: ' ';
+				background: currentcolor;
+				margin-right: 1em;
+				margin-bottom: 0.2em;
+				display: inline-block;
+				width: 0.4em;
+				height: 0.4em;
+				border-radius: 50%;
+				vertical-align: baseline;
+			}
+			// style fix for nested lists.
+			ul {
+				@include list-unstyled();
+			}
+		}
+	}
+
+	//facebook embedded posts
+	.fb_iframe_widget {
+		display: inline-block;
+		position: static;
+		float: left;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

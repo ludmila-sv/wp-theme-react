@@ -1,0 +1,150 @@
+.dialog-overlay {
+	z-index: 110;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparentize( $accent, 0.3 );
+}
+
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1110;
+	width: 100%;
+	padding: 0 rem( 2 );
+	text-align: center;
+	@include media-breakpoint-up( $bp ) {
+		bottom: auto;
+	}
+
+	&__inner {
+		position: relative;
+		@include make-container-max-widths-since( $bp );
+		margin: auto;
+		padding: rem( 8 ) 0;
+		//top: 50%;
+		//left: 50%;
+		//transform: translate(-50%, -50%);
+	}
+
+	&__close {
+		appearance: none;
+		position: absolute;
+		top: rem( 2 );
+		right: rem( 2 );
+		display: block;
+		width: rem( 4 );
+		height: rem( 4 );
+		padding: 0;
+		background: $white;
+		border-radius: 50%;
+		border: none;
+
+		.close-icon {
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: rem( 1.4 );
+				height: rem( 0.2 );
+				margin-left: rem( -0.7 );
+				margin-top: rem( -0.1 );
+				background: $accent;
+				transform-origin: center;
+			}
+
+			&:before {
+				transform: rotate( 45deg );
+			}
+
+			&:after {
+				transform: rotate( 135deg );
+			}
+		}
+	}
+}
+
+.dialog-overlay[aria-hidden='true'],
+.dialog[aria-hidden='true'] {
+	display: none;
+}
+
+.dialog-overlay:not( [aria-hidden='true'] ),
+.dialog:not( [aria-hidden='true'] ) {
+	display: block;
+}
+
+.gallery {
+	&__slider {
+		@include overflow-slider-with-all-visible;
+		@include slick-hide-uninitialized;
+
+		.slick-arrow {
+			display: none;
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			transform: translateY( -50% );
+			font-size: 0;
+
+			&.slick-prev {
+				left: rem( 1.025 );
+				@include media-breakpoint-up( $bp ) {
+					left: rem( 3.8 );
+				}
+			}
+			&.slick-next {
+				right: rem( 1.025 );
+				@include media-breakpoint-up( $bp ) {
+					right: rem( 3.8 );
+				}
+			}
+		}
+		&.slick-initialized {
+			.slick-arrow {
+				display: block;
+			}
+		}
+	}
+
+	&__slide {
+		position: relative;
+		padding: rem( 0.025 );
+		@include media-breakpoint-up( $bp ) {
+			padding: rem( 0.8 );
+		}
+
+		&-img {
+			display: block;
+			width: 100%;
+			height: auto;
+			max-height: calc( 100vh - #{rem( 16 )} );
+			object-fit: cover;
+			font-family: 'object-fit: cover;';
+			background: $light-gray;
+			border-radius: rem( 1 );
+			@include media-breakpoint-up( $bp ) {
+				border-radius: rem( 2 );
+			}
+		}
+
+		&-title {
+			position: absolute;
+			color: $white;
+			@include caption;
+			padding: rem( 1.6 );
+			text-align: center;
+			bottom: rem( -5.6 );
+			right: 0;
+			left: 0;
+		}
+	}
+}

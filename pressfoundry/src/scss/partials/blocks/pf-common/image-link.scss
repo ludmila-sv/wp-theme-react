@@ -1,0 +1,67 @@
+.image-link {
+	position: relative;
+	overflow: hidden;
+	padding: rem( 2.4 ) rem( 2.4 ) 0;
+	background: $white;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border-radius: rem( 1 );
+	@include media-breakpoint-up( $bp ) {
+		border-radius: rem( 2 );
+	}
+	&.no-img {
+		padding: 0 rem( 2.4 );
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: $gold;
+		transform: translateY( calc( 100% - #{rem( 0.4 )} ) );
+		transition: all 0.3s ease-out;
+	}
+
+	&:hover {
+		&:after {
+			background: $gold;
+			transform: translateY( 0 );
+		}
+		.btn-tertiary:after {
+			background-image: url( ../images/pf-common/btn-tertiary-w.svg );
+		}
+	}
+
+	&__image {
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+		border-radius: rem( 1 );
+		@include media-breakpoint-up( $bp ) {
+			border-radius: rem( 2 );
+		}
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__link {
+		position: relative;
+		z-index: 10;
+
+		.btn {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: auto;
+			padding: rem( 1.6 ) rem( 4 ) rem( 1.6 ) rem( 0 );
+			border: none;
+			border-radius: 0;
+			text-align: left;
+		}
+	}
+}

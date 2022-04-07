@@ -1,0 +1,45 @@
+.wp-block-quote {
+	position: relative;
+	@include quote;
+	margin-top: rem( 3.2 );
+	margin-bottom: rem( 3.2 );
+	padding-left: rem( 1.6 );
+	border-left: rem( 0.8 ) solid $accent-variant;
+	@include media-breakpoint-up( $bp ) {
+		margin-top: rem( 4.8 );
+		margin-bottom: rem( 4.8 );
+		padding-left: rem( 4 );
+	}
+
+	p {
+		@include quote;
+		color: $accent-variant;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	cite {
+		display: block;
+		margin: rem( 1.4 ) 0 0;
+		font-size: rem( 1.4 );
+		font-weight: 300;
+		line-height: 1.5;
+		@include media-breakpoint-up( $bp ) {
+			margin: rem( 2.8 ) 0 0;
+			font-size: rem( 1.6 );
+		}
+	}
+}
+
+.content {
+	blockquote.wp-block-quote {
+		margin-top: rem( 3.2 );
+		margin-bottom: rem( 3.2 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 4.8 );
+			margin-bottom: rem( 4.8 );
+		}
+	}
+}

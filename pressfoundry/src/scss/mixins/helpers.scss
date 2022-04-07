@@ -1,0 +1,89 @@
+// blog post content block
+@mixin content {
+	@include media-breakpoint-up( xl ) {
+		max-width: $content;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@mixin content-wide {
+	@include media-breakpoint-up( xl ) {
+		max-width: $content-wide;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@mixin retina {
+	@media ( min-device-pixel-ratio: 1.5 ) {
+		@content;
+	}
+}
+
+// grid helpers
+@mixin make-container-max-widths-since(
+	$since-breakpoint: xs,
+	$max-widths: $container-max-widths,
+	$breakpoints: $grid-breakpoints
+) {
+	$since-found: false;
+
+	@each $breakpoint, $container-max-width in $max-widths {
+		@if $breakpoint == $since-breakpoint {
+			$since-found: true;
+		}
+		@if $since-found {
+			@include media-breakpoint-up( $breakpoint, $breakpoints ) {
+				max-width: $container-max-width;
+			}
+		}
+	}
+}
+
+@mixin list-unstyled() {
+	list-style: none;
+}
+
+@mixin list-unstyled-at-all {
+	@include list-unstyled();
+	padding: 0;
+	margin: 0;
+}
+
+@mixin optimize2DAnimationsOn3D() {
+	backface-visibility: hidden;
+	perspective: 1000;
+}
+
+@mixin border-radius( $radius ) {
+	border-radius: $radius;
+}
+
+@mixin transform( $transform ) {
+	transform: $transform;
+}
+
+@mixin transition( $transition ) {
+	transition: $transition;
+}
+
+@mixin transition-delay( $delay ) {
+	transition-delay: $delay;
+}
+
+@mixin section-margin {
+	margin-top: rem( 4.8 );
+	margin-bottom: rem( 4.8 );
+	@include media-breakpoint-up( $bp ) {
+		margin-top: rem( 8.8 );
+		margin-bottom: rem( 8.8 );
+	}
+}
+@mixin section-margin-small {
+	margin-top: rem( 3.2 );
+	margin-bottom: rem( 3.2 );
+	@include media-breakpoint-up( $bp ) {
+		margin-top: rem( 6.4 );
+		margin-bottom: rem( 6.4 );
+	}
+}

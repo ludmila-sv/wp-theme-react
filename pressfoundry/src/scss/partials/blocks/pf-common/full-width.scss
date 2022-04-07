@@ -1,0 +1,25 @@
+.container {
+	.full-width {
+		width: 100vw;
+		min-width: 320px;
+		margin-left: rem( -2 );
+		@include media-breakpoint-up( sm ) {
+			margin-left: calc( #{ map-get($container-max-widths, sm ) / 2 } - 50vw - #{$spacer/2} );
+		}
+		@include media-breakpoint-up( md ) {
+			margin-left: calc( #{ map-get($container-max-widths, md ) / 2 } - 50vw - #{$spacer/2} );
+		}
+		@include media-breakpoint-up( lg ) {
+			margin-left: calc( #{ map-get($container-max-widths, lg ) / 2 } - 50vw - #{$spacer/2} );
+		}
+		@include media-breakpoint-up( xl ) {
+			margin-left: calc( #{ map-get($container-max-widths, xl ) / 2 } - 50vw - #{$spacer/2} );
+		}
+		@include media-breakpoint-up( hd ) {
+			margin-left: calc( #{ map-get($container-max-widths, hd ) / 2 } - 50vw - #{$spacer/2} );
+		}
+		@include media-breakpoint-up( xxl ) {
+			margin-left: calc( #{ map-get($container-max-widths, xxl ) / 2 } - 50vw - #{$spacer/2});
+		}
+	}
+}

@@ -1,0 +1,78 @@
+.accordion {
+	@include section-margin;
+
+	&__list {
+		@include content;
+	}
+	&__item {
+		overflow: hidden;
+		margin: 0 0 rem( 1.6 );
+		background: $light-gray;
+		@include media-breakpoint-up( $bp ) {
+			margin: 0 0 rem( 2 );
+		}
+
+		&__title {
+			@include h-4;
+			position: relative;
+			margin: 0;
+			padding: rem( 1.6 ) rem( 5.6 ) rem( 1.6 ) rem( 1.6 );
+			transition: all 0.3s ease-out;
+			cursor: pointer;
+			@include media-breakpoint-up( $bp ) {
+				margin: 0;
+				padding: rem( 3.2 ) rem( 5.6 ) rem( 3.2 ) rem( 2 );
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: rem( 1.6 );
+				width: rem( 2.4 );
+				height: rem( 2.4 );
+				margin: rem( -1.2 ) 0 0;
+				background: $accent url( ../images/pf-common/plus.svg ) no-repeat center;
+				background-size: rem( 1.2 );
+				border-radius: 50%;
+				transition: all 0.3s ease-out;
+				@include media-breakpoint-up( $bp ) {
+					right: rem( 2 );
+				}
+			}
+
+			&:hover {
+				background: $accent-variant;
+				color: $white;
+				&:after {
+					background-color: $white;
+				}
+			}
+		}
+
+		&__text {
+			overflow: hidden;
+			max-height: 0;
+			transition: all 0.5s ease-out;
+
+			&--inner {
+				padding: rem( 1.6 );
+				@include media-breakpoint-up( $bp ) {
+					padding: rem( 3.2 ) rem( 2 );
+				}
+			}
+		}
+
+		&.accordion-open {
+			.accordion__item__title {
+				&:after {
+					background-image: url( ../images/pf-common/minus.svg );
+				}
+			}
+			.accordion__item__text {
+				max-height: 50rem;
+			}
+		}
+	}
+}

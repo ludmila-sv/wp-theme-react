@@ -1,0 +1,6 @@
+@import '../../components/btn';
+
+.wp-block-button__link {
+	@extend .btn;
+	@extend .btn-primary;
+}

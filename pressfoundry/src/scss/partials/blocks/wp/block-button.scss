@@ -1,0 +1,100 @@
+/* Gutenberg styles for button */
+.wp-block-buttons {
+	margin-top: rem( 1.6 );
+	margin-bottom: rem( 1.6 );
+	@include media-breakpoint-up( $bp ) {
+		margin-top: rem( 4 );
+		margin-bottom: rem( 4 );
+	}
+}
+
+.content {
+	.wp-block-buttons {
+		@include content;
+		margin-top: rem( 1.6 );
+		margin-bottom: rem( 1.6 );
+		@include media-breakpoint-up( $bp ) {
+			margin-top: rem( 3.2 );
+			margin-bottom: rem( 3.2 );
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.wp-block-buttons .wp-block-button {
+	margin-right: 2em;
+	margin-bottom: rem( 0.8 );
+
+	&:last-child {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+}
+
+.wp-block-button {
+	&.is-style-primary {
+		.wp-block-button__link {
+			@extend .btn;
+			@extend .btn-primary;
+		}
+	}
+
+	&.is-style-secondary {
+		.wp-block-button__link {
+			@extend .btn;
+			@extend .btn-secondary;
+		}
+	}
+
+	&.is-style-tertiary {
+		.wp-block-button__link {
+			@extend .btn;
+			@extend .btn-tertiary;
+
+			&.has-white-color {
+				color: $white;
+			}
+			&.has-dark-color {
+				color: $dark;
+			}
+			&.has-accent-color {
+				color: $accent;
+			}
+			&.has-accent-variant-color {
+				color: $accent-variant;
+			}
+			&.has-semantic-warning-color {
+				color: $semantic-warning;
+			}
+			&.has-semantic-error-color {
+				color: $semantic-error;
+			}
+			&.has-semantic-success-color {
+				color: $semantic-success;
+			}
+			&.has-semantic-info-color {
+				color: $semantic-info;
+			}
+			&.has-neutral-30-color {
+				color: $neutral-30;
+			}
+			&.has-neutral-45-color {
+				color: $neutral-45;
+			}
+			&.has-neutral-70-color {
+				color: $neutral-70;
+			}
+			&.has-neutral-88-color {
+				color: $neutral-88;
+			}
+			&.has-neutral-94-color {
+				color: $neutral-94;
+			}
+			&.has-neutral-97-color {
+				color: $neutral-97;
+			}
+		}
+	}
+}

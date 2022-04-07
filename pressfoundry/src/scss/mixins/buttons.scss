@@ -1,0 +1,55 @@
+@mixin disabled-button() {
+	background: $light-gray;
+	box-shadow: none;
+
+	&:hover,
+	&:focus {
+		transform: none;
+		box-shadow: none;
+	}
+}
+
+@mixin load-more-button {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	padding-left: rem( 3 );
+	padding-right: rem( 3 );
+	// add active class to make button visible.
+	&.active {
+		opacity: 1;
+		max-height: rem( 30 ); // just a sample bigger then actual button
+	}
+
+	// loading state.
+	&.loading {
+		position: relative;
+
+		&:before {
+			content: ' ';
+			display: block;
+			border: rem( 0.5 ) solid;
+			border-radius: rem( 2 );
+			height: rem( 2 );
+			left: rem( 1.5 );
+			margin: rem( -1 ) 0 0 rem( -1 );
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			width: rem( 2 );
+
+			animation: pulsate 1s ease-out;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+@mixin no-underline-link() {
+	text-decoration: none !important;
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none !important;
+	}
+}
+

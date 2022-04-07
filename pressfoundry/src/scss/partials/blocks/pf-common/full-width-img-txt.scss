@@ -1,0 +1,86 @@
+.full-width-img-txt {
+	position: relative;
+	padding: rem( 0 ) 0 rem( 6 );
+	@include media-breakpoint-up( $bp ) {
+		padding: rem( 26 ) 0 rem( 18.9 );
+	}
+
+	&__container {
+		display: flex;
+		justify-content: flex-end;
+	}
+	&__img {
+		@include media-breakpoint-up( $bp ) {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+	&__txt {
+		position: relative;
+		z-index: 10;
+		max-width: calc( 100% - #{rem( 2 )} );
+		margin-top: rem( -3.8 );
+		padding: rem( 3.2 ) rem( 2 );
+		background: $white;
+		border-radius: rem( 1 ) 0 0 rem( 3 );
+		@include small-shadow();
+		@include media-breakpoint-up( md ) {
+			padding: rem( 5 ) rem( 4 );
+		}
+		@include media-breakpoint-up( $bp ) {
+			max-width: rem( 71.1 );
+			margin-top: 0;
+			padding: rem( 8 ) rem( 13 );
+			box-shadow: none;
+		}
+	}
+	&.text-block-left {
+		@include media-breakpoint-up( $bp ) {
+			.full-width-img-txt__container {
+				justify-content: flex-start;
+			}
+			.full-width-img-txt__txt {
+				border-radius: 0 rem( 2 ) rem( 10 ) 0;
+			}
+		}
+	}
+	&.text-block-right {
+		@include media-breakpoint-up( $bp ) {
+			.full-width-img-txt__container {
+				justify-content: flex-end;
+			}
+			.full-width-img-txt__txt {
+				border-radius: rem( 2 ) 0 0 rem( 10 );
+			}
+		}
+	}
+
+	.home & {
+		padding-bottom: rem( 7.4 );
+		@include media-breakpoint-up( $bp ) {
+			padding-bottom: rem( 18.9 );
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			z-index: 30;
+			right: rem( 2 );
+			width: rem( 11 );
+			height: rem( 9.62 );
+			background: url( ../images/abc-2.svg ) no-repeat center;
+			background-size: 100%;
+			@include media-breakpoint-up( $bp ) {
+				display: none;
+			}
+		}
+	}
+}

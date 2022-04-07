@@ -1,0 +1,61 @@
+.fancybox-bg {
+	background: $accent-variant;
+}
+.fancybox-is-open .fancybox-bg {
+	opacity: 0.7;
+}
+.fancybox-infobar {
+	color: $accent;
+	mix-blend-mode: normal;
+}
+.fancybox-button {
+	background: $accent no-repeat center;
+	background-size: 20px 20px;
+
+	&--thumbs {
+		display: none;
+	}
+	&--zoom {
+		background-image: url( ../images/pf-common/fancy-zoom.svg );
+	}
+	&--play {
+		background-image: url( ../images/pf-common/fancy-play.svg );
+	}
+	&--pause {
+		background-image: url( ../images/pf-common/fancy-pause.svg );
+	}
+	&--close {
+		background-image: url( ../images/pf-common/fancy-close.svg );
+	}
+
+	svg {
+		display: none;
+	}
+}
+.fancybox-navigation {
+	.fancybox-button {
+		top: calc( 50% - 25px );
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: $white url( ../images/pf-common/fancy-arrow.svg ) no-repeat center;
+		//border: 1px solid $red;
+
+		&--arrow_left {
+			left: 10px;
+			padding: 0;
+			transform: rotate( 180deg );
+		}
+		&--arrow_right {
+			right: 10px;
+			padding: 0;
+		}
+		&:disabled {
+			opacity: 0.3;
+		}
+	}
+}
+.fancybox-caption {
+	background: transparent;
+	color: $white;
+}

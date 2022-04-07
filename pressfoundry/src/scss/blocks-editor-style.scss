@@ -1,0 +1,24 @@
+/*
+* Here goes our Gutenberg Blocks embedded styles for ease of editing.
+*/
+@import 'overrides'; // load our grid custom breakpoints and override bootstrap's variables if needed
+
+// bootstrap's imported
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// our local styles and mixins
+
+@import 'variables'; // we load our own theme's variables after bootstrap's to make sure we override colors and  other stuff
+@import 'mixins/*'; //all our mixins are in directory separated by field of usage in files.
+
+// these are wrapped in editor so we'll not override global fonts etc.
+.editor-styles-wrapper {
+	.wp-block {
+		max-width: 100%;
+	}
+
+	@import 'partials/gutenberg/*';
+	@import 'partials/blocks/**/*';
+}

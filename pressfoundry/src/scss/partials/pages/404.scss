@@ -1,0 +1,56 @@
+.error-404 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: rem( 8.5 ) 0;
+	@include content;
+	text-align: center;
+	@include media-breakpoint-up( $bp ) {
+		padding: rem( 20 ) 0;
+	}
+
+	&__wrapper {
+		background: $accent;
+		color: $white;
+	}
+
+	&__subtitle {
+		margin: 0 0 rem( 0.8 );
+		font-size: rem( 1.1 );
+		font-weight: 700;
+		line-height: rem( 1.6 );
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+	}
+
+	&__title {
+		margin: 0 0 rem( 3.6 );
+
+		&:not( .has-text-color ) {
+			color: $white;
+		}
+	}
+
+	&__btns {
+		margin: 0 rem( -1 );
+		@include media-breakpoint-up( sm ) {
+			margin: 0 rem( -2 );
+		}
+		.btn {
+			margin: 0 rem( 1 ) rem( 0.8 );
+			@include media-breakpoint-up( sm ) {
+				margin: 0 rem( 2 ) rem( 0.8 );
+			}
+		}
+		.btn-tertiary {
+			color: $white;
+			&:hover,
+			&:focus,
+			&:active {
+				color: $white;
+			}
+		}
+	}
+}

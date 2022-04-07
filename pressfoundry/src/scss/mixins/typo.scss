@@ -1,0 +1,139 @@
+/** Mixins to generate styles mixins for textual entities from $local-font-rules */
+
+/* stylelint-disable function-comma-space-after */
+
+@mixin make-font-style( $type, $mode: 'mobile' ) {
+	$weight: map-deep-get( $local-font-rules, $type, 'font-weight' );
+	$family: map-deep-get( $local-font-rules, $type, 'font-family' );
+	$size: map-deep-get( $local-font-rules, $type, $mode, 'font-size' );
+	$line-height: map-deep-get(
+		$local-font-rules,
+		$type,
+		$mode,
+		'line-height'
+	);
+
+	font: #{$weight} #{$size}/#{$line-height} #{$family};
+}
+
+@mixin make-font-margin-bottom( $type, $mode: 'mobile' ) {
+	$margin-bottom: map-deep-get(
+		$local-font-rules,
+		$type,
+		$mode,
+		'margin-bottom'
+	);
+	margin-bottom: #{$margin-bottom};
+}
+
+@mixin make-font-letter-spacing( $type, $mode: 'mobile' ) {
+	$letter-spacing: map-deep-get(
+		$local-font-rules,
+		$type,
+		$mode,
+		'letter-spacing'
+	);
+	@if ( $letter-spacing != 0 ) {
+		letter-spacing: #{$letter-spacing};
+	}
+}
+
+@mixin make-font-style-responsive( $type: 'body' ) {
+	@include make-font-style( $type, 'mobile' );
+	@include make-font-margin-bottom( $type, 'mobile' );
+	@include make-font-letter-spacing( $type, 'mobile' );
+
+	@include media-breakpoint-up( $bp ) {
+		@include make-font-style( $type, 'desktop' );
+		@include make-font-margin-bottom( $type, 'desktop' );
+		@include make-font-letter-spacing( $type, 'desktop' );
+	}
+}
+
+// typography mixins to be used to style all the h1-h6, p etc.
+@mixin h-1 {
+	@include make-font-style-responsive( h-1 );
+}
+
+@mixin h-2 {
+	@include make-font-style-responsive( h-2 );
+}
+
+@mixin h-3 {
+	@include make-font-style-responsive( h-3 );
+}
+
+@mixin h-4 {
+	@include make-font-style-responsive( h-4 );
+}
+
+@mixin h-5 {
+	@include make-font-style-responsive( h-5 );
+}
+
+@mixin h-6 {
+	@include make-font-style-responsive( h-6 );
+}
+
+//-----------------------------------
+@mixin body {
+	@include make-font-style-responsive( body );
+}
+
+@mixin body-2 {
+	@include make-font-style-responsive( body-2 );
+}
+
+@mixin list {
+	@include make-font-style-responsive( 'list' );
+}
+
+@mixin lead {
+	@include make-font-style-responsive( lead );
+}
+
+@mixin quote {
+	@include make-font-style-responsive( 'quote' );
+}
+
+@mixin subtitle-1 {
+	@include make-font-style( 'subtitle-1' );
+	@include make-font-margin-bottom( 'subtitle-1' );
+	@include make-font-letter-spacing( 'subtitle-1' );
+}
+
+@mixin subtitle-2 {
+	@include make-font-style( 'subtitle-2' );
+	@include make-font-margin-bottom( 'subtitle-2' );
+	@include make-font-letter-spacing( 'subtitle-2' );
+}
+
+@mixin button-1 {
+	@include make-font-style( 'button-1' );
+	@include make-font-margin-bottom( 'button-1' );
+	@include make-font-letter-spacing( 'button-1' );
+}
+
+@mixin button-2 {
+	@include make-font-style( 'button-2' );
+	@include make-font-margin-bottom( 'button-2' );
+	@include make-font-letter-spacing( 'button-2' );
+}
+
+@mixin caption {
+	@include make-font-style( 'caption' );
+	@include make-font-margin-bottom( 'caption' );
+	@include make-font-letter-spacing( 'caption' );
+}
+
+@mixin overline {
+	@include make-font-style( 'overline', 'mobile' );
+	@include make-font-margin-bottom( 'overline', 'mobile' );
+	@include make-font-letter-spacing( 'overline', 'mobile' );
+}
+
+@mixin a-hover {
+	outline: none;
+	border: none;
+	text-decoration: none;
+}

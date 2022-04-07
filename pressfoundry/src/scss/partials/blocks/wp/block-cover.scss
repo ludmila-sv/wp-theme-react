@@ -1,0 +1,30 @@
+.wp-block-cover {
+	min-height: 0;
+	margin: 0 !important;
+	padding: rem( 5.6 ) rem( 3 );
+	background-repeat: no-repeat;
+	@include media-breakpoint-up( $bp ) {
+		padding: rem( 11.2 ) rem( 3 );
+	}
+	&.is-repeated {
+		background-repeat: repeat;
+		background-size: auto;
+	}
+
+	&.is-style-single-image {
+		padding: 0;
+		background-repeat: no-repeat;
+		background-size: auto;
+		.wp-block-cover__inner-container {
+			color: inherit;
+		}
+		@include media-breakpoint-down( $bp-down ) {
+			background-size: 100% auto;
+			background-position: center !important;
+		}
+	}
+}
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container {
+	width: 100%;
+}

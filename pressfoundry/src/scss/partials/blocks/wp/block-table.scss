@@ -1,0 +1,139 @@
+/* stylelint-disable no-descending-specificity */
+.wp-block-table {
+	overflow-x: auto;
+	@include content;
+	@include section-margin-small;
+	@include styled-scrollbar-hor;
+
+	table {
+		thead {
+			border-bottom: 1px solid $gray;
+		}
+		th {
+			@include h-5;
+			margin: 0;
+			padding: rem( 1.6 );
+			border: none;
+			@include media-breakpoint-up( $bp ) {
+				margin: 0;
+			}
+		}
+		td {
+			@include body-2;
+			margin: 0;
+			padding: rem( 1.8 ) rem( 1.6 );
+			border: none;
+			@include media-breakpoint-up( $bp ) {
+				margin: 0;
+				padding: rem( 2.4 ) rem( 1.6 );
+			}
+		}
+	}
+	&.is-style-stripes,
+	&.is-style-flip,
+	&.is-style-stack {
+		border: none;
+		table {
+			thead {
+				border-bottom: none;
+				background-color: $white;
+			}
+			tbody {
+				tr:nth-child( odd ) {
+					background-color: $light-gray;
+				}
+				tr:nth-child( even ) {
+					background-color: $white;
+				}
+			}
+			th,
+			td {
+				padding: rem( 0.8 ) rem( 1.6 );
+			}
+		}
+	}
+	&.is-style-flip {
+		@include media-breakpoint-down( $bp-down ) {
+			table {
+				display: flex;
+				overflow: hidden;
+				background: none;
+			}
+
+			thead {
+				display: flex;
+				flex-shrink: 0;
+				min-width: min-content;
+			}
+			tfoot {
+				display: none;
+			}
+
+			tbody {
+				display: flex;
+				position: relative;
+				overflow-x: auto;
+				overflow-y: hidden;
+				@include styled-scrollbar-hor;
+
+				// optional - enable iOS momentum scrolling
+				-webkit-overflow-scrolling: touch;
+
+				// scrolling shadows
+				// The shadows act as a visual indicator for content overflow and invite scrolling.
+				background: radial-gradient( left, ellipse, rgba( 0, 0, 0, 0.2 ) 0%, rgba( 0, 0, 0, 0 ) 75% ) 0 center,
+							radial-gradient( right, ellipse, rgba( 0, 0, 0, 0.2 ) 0%, rgba( 0, 0, 0, 0 ) 75% ) 100% center;
+				background-size: 10px 100%, 10px 100%;
+				background-attachment: scroll, scroll;
+				background-repeat: no-repeat;
+			}
+			tr {
+				display: flex;
+				flex-direction: column;
+				min-width: min-content;
+				flex-shrink: 0;
+			}
+
+			td,
+			th {
+				display: block;
+			}
+
+			td {
+				background-image: none !important;
+				// border-collapse is no longer active
+				border-left: 0;
+			}
+
+			// border-collapse is no longer active
+			th:not( :last-child ),
+			td:not( :last-child ) {
+				border-bottom: 0;
+			}
+		}
+	}
+	&.is-style-stack {
+		@include media-breakpoint-down( $bp-down ) {
+			table,
+			tbody,
+			tr,
+			th,
+			td {
+				display: block;
+			}
+			thead,
+			tfoot {
+				display: none;
+			}
+			table tr {
+				padding: rem( 0.8 ) 0 rem( 3.2 );
+			}
+			table th {
+				padding: rem( 2.4 ) rem( 1.6 ) 0;
+			}
+			table td {
+				padding: 0 rem( 1.6 );
+			}
+		}
+	}
+}

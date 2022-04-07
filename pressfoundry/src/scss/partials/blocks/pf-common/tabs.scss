@@ -1,0 +1,90 @@
+/* stylelint-disable no-descending-specificity */
+.tabs,
+.content .tabs {
+	@include section-margin;
+	@include content;
+
+	&-nav {
+		ul {
+			list-style: none;
+			display: inline-flex;
+			flex-wrap: wrap;
+			position: relative;
+			margin: 0;
+			padding: 0;
+
+			li {
+				display: block;
+				position: relative;
+				margin: 0 rem( 0.2 ) rem( 0.4 );
+				padding: rem( 1.6 );
+				background: $light;
+				transition: all 0.3s ease-out;
+				white-space: nowrap;
+				cursor: pointer;
+				text-align: center;
+
+				@include media-breakpoint-up( $bp ) {
+					padding: rem( 1.6 ) rem( 3 );
+				}
+
+				&:before {
+					display: none;
+				}
+				&:after {
+					display: none;
+				}
+
+				&:hover {
+					background: $light-gray;
+				}
+
+				a {
+					font-size: rem( 1.4 );
+					font-weight: 700;
+					line-height: rem( 1.6 );
+					text-decoration: none;
+					color: $dark;
+					@include media-breakpoint-up( $bp ) {
+						font-size: rem( 1.6 );
+						line-height: rem( 2.4 );
+					}
+
+					&:hover,
+					&:focus,
+					&:active {
+						@include a-hover;
+						color: $accent-variant;
+					}
+				}
+
+				&.active {
+					a {
+						color: $accent;
+					}
+				}
+			}
+		}
+	}
+
+	&-content {
+		padding: rem( 2.4 ) rem( 1 );
+		background: $light;
+	}
+
+	.tab {
+		[class^='wp-block'] {
+			margin-top: rem( 2.5 );
+			margin-bottom: rem( 2.5 );
+			@include media-breakpoint-up( $bp ) {
+				margin-top: rem( 4 );
+				margin-bottom: rem( 4 );
+			}
+		}
+
+		[class^='wp-block'] [class^='wp-block'] {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}

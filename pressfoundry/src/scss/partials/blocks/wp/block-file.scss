@@ -1,0 +1,17 @@
+.wp-block-file {
+	.content & {
+		@include content;
+	}
+	.wp-block-file__button {
+		@extend .btn;
+		@extend .btn-primary;
+
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			opacity: 1 !important;
+			color: $dark !important;
+		}
+	}
+}

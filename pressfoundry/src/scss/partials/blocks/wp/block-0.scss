@@ -1,0 +1,10 @@
+// this file should be the 1st in the compiled css,
+// because others like block-button.scss or block-column.scss should have an ability to override its styles.
+[class^='wp-block'] {
+@include section-margin;
+}
+
+[class^='wp-block'] [class^='wp-block'] {
+	margin-top: 0;
+	margin-bottom: 0;
+}

@@ -1,0 +1,160 @@
+// styling slider controls
+@mixin slider-controls( $main-color: $text-color ) {
+	.slick-prev,
+	.slick-next {
+		&:before {
+			color: $main-color;
+		}
+	}
+
+	.slick-dots {
+		li {
+			button {
+				&:hover,
+				&:focus {
+					outline: none;
+					&:before {
+						background: fade_out(
+							$main-color,
+							$slick-opacity-not-active
+						);
+					}
+				}
+				&:before {
+					color: $main-color;
+				}
+			}
+			&.slick-active button:before {
+				background: $main-color;
+				color: $main-color;
+			}
+		}
+	}
+}
+
+// slider's style - apply these mixins to slider's container.
+
+@mixin overflow-slider-with-fade() {
+	transition: opacity 0.2s;
+	opacity: 0;
+	&.slick-initialized {
+		opacity: 1;
+	}
+
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+
+		&.slick-active,
+		&.slick-current {
+			opacity: 1;
+			& + .slick-slide {
+				opacity: 1;
+			}
+		}
+
+		.injected {
+			opacity: 1;
+			transition: opacity 0.2s;
+			&.loading {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+// overflows slider's container and fades in-out only one slide.
+@mixin overflow-slider-fade-single {
+	transition: opacity 0.2s;
+	opacity: 0;
+	&.slick-initialized {
+		opacity: 1;
+	}
+
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+
+		&.slick-active,
+		&.slick-current {
+			opacity: 1;
+		}
+
+		.injected {
+			opacity: 1;
+			transition: opacity 0.2s;
+			&.loading {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+@mixin overflow-slider-with-all-visible() {
+	transition: opacity 0.2s;
+	opacity: 0;
+	&.slick-initialized {
+		opacity: 1;
+	}
+
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		opacity: 0.7;
+		transition: opacity 0.3s ease;
+
+		&.slick-active,
+		&.slick-current {
+			opacity: 1;
+		}
+
+		.injected {
+			opacity: 1;
+			transition: opacity 0.2s;
+			&.loading {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+@mixin overflow-slider() {
+	transition: opacity 0.2s;
+	opacity: 0;
+	&.slick-initialized {
+		opacity: 1;
+	}
+
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		transition: opacity 0.3s ease;
+
+		&.slick-active,
+		&.slick-current {
+			opacity: 1;
+		}
+
+		.injected {
+			opacity: 1;
+			transition: opacity 0.2s;
+			&.loading {
+				opacity: 0;
+			}
+		}
+	}
+}
+@mixin slick-hide-uninitialized {
+	display: none;
+	&.slick-initialized {
+		display: block;
+	}
+}

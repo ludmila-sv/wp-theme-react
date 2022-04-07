@@ -1,0 +1,12 @@
+.wp-block-separator {
+	border: none;
+	border-bottom: 1px solid $middle-gray;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 1;
+
+	&.is-style-wide {
+		@include content;
+		border-bottom-width: 1px;
+	}
+}

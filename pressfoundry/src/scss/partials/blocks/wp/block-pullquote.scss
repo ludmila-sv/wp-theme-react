@@ -1,0 +1,12 @@
+.wp-block-pullquote {
+	padding: 0;
+	border: none;
+	text-align: left;
+
+	&__citation,
+	& cite,
+	& footer {
+		font: 400 rems( 1.8 )/1.6 $content-font;
+		text-transform: none;
+	}
+}

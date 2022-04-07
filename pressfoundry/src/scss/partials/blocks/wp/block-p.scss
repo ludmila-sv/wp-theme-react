@@ -1,0 +1,18 @@
+p {
+	&.is-style-lead {
+		@include lead;
+	}
+	&.is-style-caption {
+		@include caption;
+	}
+	&.is-style-subtitle-1 {
+		@include subtitle-1;
+	}
+	&.is-style-subtitle-2 {
+		@include subtitle-2;
+	}
+	&.is-style-overline {
+		@include overline;
+		text-transform: uppercase;
+	}
+}

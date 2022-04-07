@@ -1,0 +1,56 @@
+.pagination {
+	margin: rem( 4.2 ) 0 0;
+	@include media-breakpoint-up( md ) {
+		margin: rem( 9 ) 0 0;
+	}
+
+	.nav-links {
+		margin: 0 auto;
+	}
+
+	.page-numbers {
+		display: inline-block;
+		vertical-align: middle;
+		width: rem( 4 );
+		height: rem( 4 );
+		border-radius: 50%;
+		@include button-2;
+		line-height: rem( 4 );
+		text-align: center;
+		text-decoration: none;
+		color: $accent-variant;
+		&:hover,
+		&:focus,
+		&:active {
+			@include a-hover;
+			color: $accent-variant;
+		}
+
+		&.current {
+			background: $accent-variant;
+			color: $white;
+			&:hover,
+			&:focus,
+			&:active {
+				color: $white;
+			}
+		}
+
+		&.prev,
+		&.next {
+			width: rem( 0.8 );
+			height: rem( 1.2 );
+			border-radius: 0;
+		}
+		&.next {
+			margin-left: rem( 2 );
+			background: url( ../images/components/chevron-right.svg ) no-repeat right center;
+			background-size: 8px 12px;
+		}
+		&.prev {
+			margin-right: rem( 2 );
+			background: url( ../images/components/chevron-left.svg ) no-repeat right center;
+			background-size: 8px 12px;
+		}
+	}
+}

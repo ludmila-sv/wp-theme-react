@@ -1,0 +1,21 @@
+/*
+* Here goes our TinyMCE embedded styles for ease of editing.
+*/
+
+@import 'overrides'; // load our grid custom breakpoints and override bootstrap's variables if needed
+
+// our local vars
+@import 'variables';
+// bootstrap's imported
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// our local styles and mixins
+
+@import 'mixins/*';
+@import 'partials/gutenberg/*';
+@import 'partials/components/content';
+@import 'partials/components/blockquote';
+
+@import 'partials/components/btn';

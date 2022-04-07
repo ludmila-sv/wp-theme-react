@@ -1,0 +1,30 @@
+.audio-button {
+	margin: rem( 1.6 ) 0;
+	@include media-breakpoint-up( $bp ) {
+		margin: rem( 2.4 ) 0;
+	}
+}
+.btn-audio {
+	position: relative;
+	@extend .btn;
+	@extend .btn-secondary;
+	padding-left: rem( 6.4 ) !important;
+
+	&__play {
+		display: block;
+		position: absolute;
+		left: rem( 3 );
+		top: 50%;
+		width: rem( 2.4 );
+		height: rem( 2.4 );
+		margin: rem( -1.2 ) 0 0;
+		border-radius: 50%;
+		background: $semantic-error url( ../images/play-small.svg ) no-repeat left rem( 0.943 ) center;
+	}
+
+	&.playing {
+		.btn-audio__play {
+			background: $semantic-error url( ../images/pause-small.svg ) no-repeat center;
+		}
+	}
+}

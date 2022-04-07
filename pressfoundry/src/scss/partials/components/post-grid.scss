@@ -1,0 +1,11 @@
+.content {
+	.container > section:not( .full-width ) .container {
+		width: 100%;
+		padding: 0;
+	}
+	.container > div:not( .full-width ) .container {
+		width: 100%;
+		padding: 0;
+	}
+}
+// the menu also has .container inside .container, but the styles above are not applicable for it.

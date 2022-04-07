@@ -1,0 +1,106 @@
+.wp-block-gallery {
+	ul.blocks-gallery-grid {
+		max-width: calc( 100% + #{rem( 1.6 )} );
+		width: calc( 100% + #{rem( 1.6 )} );
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: rem( -0.8 );
+		margin-right: rem( -0.8 );
+		padding: 0;
+		@include media-breakpoint-up( $bp ) {
+			max-width: calc( 100% + #{$spacer} );
+			width: calc( 100% + #{$spacer} );
+			margin-left: -$spacer / 2;
+			margin-right: -$spacer / 2;
+		}
+
+		li.blocks-gallery-item {
+			flex: 0 0 50%;
+			width: 50%;
+			max-width: 50%;
+			margin: 0;
+			padding: 0 rem( 0.8 ) rem( 1.6 );
+			@include media-breakpoint-up( $bp ) {
+				padding: 0 $spacer / 2 $spacer;
+			}
+
+			&:before {
+				display: none;
+			}
+
+			figure {
+				position: relative;
+				overflow: hidden;
+
+				.figure-zoom {
+					display: block;
+					position: absolute;
+					top: 150%;
+					left: 50%;
+					width: rem( 4 );
+					height: rem( 4 );
+					margin: rem( -2 ) 0 0 rem( -2 );
+					background: $accent url( ../images/pf-common/zoom.svg ) no-repeat center;
+					background-size: 20px;
+					border-radius: 50%;
+					transition: all 0.3s ease-out;
+					cursor: pointer;
+				}
+
+				&:hover .figure-zoom {
+					top: 50%;
+				}
+
+				a {
+					display: block;
+					border: none !important;
+					&:hover,
+					&:focus,
+					&:active {
+						border: none !important;
+					}
+				}
+			}
+
+			figcaption {
+				display: none;
+			}
+		}
+	}
+
+	&.columns-2 {
+		@media ( min-width: 600px ) {
+			ul.blocks-gallery-grid {
+				li.blocks-gallery-item {
+					flex: 0 0 50%;
+					width: 50%;
+					max-width: 50%;
+				}
+			}
+		}
+	}
+
+	&.columns-3 {
+		@media ( min-width: 600px ) {
+			ul.blocks-gallery-grid {
+				li.blocks-gallery-item {
+					flex: 0 0 33.3333%;
+					width: 33.3333%;
+					max-width: 33.3333%;
+				}
+			}
+		}
+	}
+
+	&.columns-4 {
+		@media ( min-width: 600px ) {
+			ul.blocks-gallery-grid {
+				li.blocks-gallery-item {
+					flex: 0 0 25%;
+					width: 25%;
+					max-width: 25%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+.announcement-bar {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	width: 100%;
+	min-height: $announcement-bar-height;
+	padding: rem( 0.4 ) 0;
+	background: $accent;
+	font-size: rem( 1.2 );
+	line-height: 1.3;
+	text-align: center;
+	color: $white;
+
+	&.on {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.container {
+		position: relative;
+	}
+
+	&__close {
+		position: absolute;
+		top: 50%;
+		right: rem( 2 );
+		width: 20px;
+		height: 20px;
+		margin: -10px 0 0;
+		background: $white url( ../images/components/close-dark.svg ) no-repeat center;
+		border-radius: 50%;
+		cursor: pointer;
+		@include media-breakpoint-up( sm ) {
+			right: $spacer/2;
+		}
+	}
+
+	&--inner {
+		padding: 0 rem( 3 );
+	}
+
+	p {
+		font-size: rem( 1.4 );
+	}
+
+	a,
+	a:visited,
+	a:hover,
+	a:focus,
+	a:active {
+		border: none;
+		text-decoration: underline;
+		color: $white;
+	}
+}

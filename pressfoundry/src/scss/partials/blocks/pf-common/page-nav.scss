@@ -1,0 +1,195 @@
+/* stylelint-disable no-descending-specificity */
+.page-nav,
+.content .page-nav {
+	position: relative;
+	z-index: 100;
+	margin-top: rem( 4 );
+	margin-bottom: rem( 4 );
+	background: $light-gray;
+	@include media-breakpoint-up( $bp ) {
+		margin-top: rem( 8 );
+		margin-bottom: rem( 8 );
+	}
+
+	&__inner {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: stretch;
+		height: rem( 5.6 );
+		@include media-breakpoint-up( $bp ) {
+			height: rem( 6.4 );
+		}
+	}
+
+	&__title {
+		@include h-5;
+		display: none;
+		margin: 0;
+		@include media-breakpoint-up( $bp ) {
+			display: flex;
+			align-items: center;
+			padding-right: rem( 3 );
+			margin: 0;
+		}
+	}
+
+	&__menu {
+		overflow-x: auto;
+		overflow-y: visible;
+		height: 100%;
+		@include styled-scrollbar-transparent-hor;
+
+		ul {
+			list-style: none;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			.content & {
+				max-width: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				position: static;
+				margin: 0;
+				padding: 0 rem( 1 );
+				white-space: nowrap;
+				@include media-breakpoint-up( $bp ) {
+					padding: 0 rem( 1.5 );
+				}
+
+				.content & {
+					position: static;
+					margin: 0;
+					padding: 0 rem( 1 );
+					@include media-breakpoint-up( $bp ) {
+						padding: 0 rem( 1.5 );
+					}
+				}
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		> ul {
+			> li {
+				> a {
+					@include button-2;
+					display: block;
+					position: relative;
+
+					&:after {
+						content: '';
+						display: block;
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: rem( -1.6 );
+						height: rem( 0.8 );
+						border-radius: rem( 0.4 );
+						@include media-breakpoint-up( $bp ) {
+							bottom: rem( -2.4 );
+						}
+					}
+				}
+
+				&.has-submenu.open > a:after {
+					background: $accent-variant;
+				}
+			}
+		}
+	}
+	&__submenu {
+		//display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		padding: rem( 1.6 ) rem( 1 );
+		background: $gold;
+		transform: scaleY( 0 );
+		transform-origin: 50% 0;
+		transition: all 0.3s ease-out;
+		text-align: center;
+		@include media-breakpoint-up( $bp ) {
+			padding: rem( 2.4 ) rem( 3 );
+		}
+		.has-submenu.open & {
+			transform: scaleY( 1 );
+		}
+
+		&__inner {
+			overflow-x: auto;
+			@include styled-scrollbar-transparent-hor;
+		}
+
+		ul {
+			list-style: none;
+			display: inline-flex;
+			margin: 0 auto;
+			.content ul & {
+				list-style: none;
+				max-width: none;
+				margin: 0 auto;
+			}
+			> li {
+				&:before {
+					display: none;
+				}
+				> a {
+					@include button-1;
+				}
+			}
+		}
+	}
+
+	&__btn {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: rem( 2.4 ) rem( 2 );
+		background: $white;
+		box-shadow: 0 -4px 4px rgba( 0, 0, 0, 0.05 );
+		@include media-breakpoint-up( sm ) {
+			padding: rem( 2.4 ) rem( 3 );
+		}
+		@include media-breakpoint-up( md ) {
+			display: flex;
+			position: static;
+			align-items: center;
+			padding: 0 0 0 rem( 3 );
+			background: transparent;
+			box-shadow: none;
+		}
+		.btn {
+			display: block;
+			width: 100%;
+			@include media-breakpoint-up( md ) {
+				display: inline-block;
+				width: auto;
+				padding: rem( 1 ) rem( 2 );
+			}
+		}
+	}
+}
+.pagenav-on {
+	.header__main {
+		position: absolute;
+	}
+	.page-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+	}
+}

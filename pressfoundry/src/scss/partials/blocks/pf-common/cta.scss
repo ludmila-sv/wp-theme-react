@@ -1,0 +1,49 @@
+.cta {
+	//@include section-margin;
+	padding: rem( 6.4 ) 0;
+	text-align: center;
+	background: $light;
+	@include media-breakpoint-up( $bp ) {
+		padding: rem( 14 ) 0;
+	}
+
+	&.bg-color-white {
+		background: $white;
+	}
+	&.bg-color-light {
+		background: $light;
+	}
+	&.bg-color-accent {
+		background: $accent;
+	}
+	&.bg-color-accent-variant {
+		background: $accent-variant;
+	}
+	&.bg-color-accent-variant,
+	&.bg-color-accent {
+		color: $white;
+	}
+	.wp-block-buttons {
+		.wp-block-button {
+			display: block;
+			margin: 0 0 rem( 1.6 );
+			&:last-child {
+				margin: 0;
+			}
+			@include media-breakpoint-up( sm ) {
+				display: inline-block;
+				margin: 0 rem( 0.8 ) rem( 0.8 );
+				&:last-child {
+					margin: 0 rem( 0.8 ) rem( 0.8 );
+				}
+			}
+
+			&__link {
+				display: block;
+				@include media-breakpoint-up( sm ) {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/**
+ * Classes for Gutenberg customized font sizes, they follow the naming convention `.has-{slug}-font-size`
+ * NB: slugs which contain numbers have number part separated with dash from word so slug `h1` will be turned into `h-1`
+ */
+@each $size_name, $rule in $local-font-rules {
+	.has-#{$size_name}-font-size {
+		// for mobile
+		@if (map-has-key($rule, 'mobile')) {
+			font-size: map-deep-get($rule, 'mobile', 'font-size');
+		}
+		@if (map-has-key($rule, 'desktop')) {
+			@include media-breakpoint-up($bp) {
+				// for desktop
+				font-size: map-deep-get($rule, 'desktop', 'font-size');
+			}
+		}
+
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	img {
+		vertical-align: baseline;
+	}
+}
